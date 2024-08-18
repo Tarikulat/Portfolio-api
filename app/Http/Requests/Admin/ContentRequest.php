@@ -13,8 +13,13 @@ class ContentRequest extends FormRequest
 
     public function rules(): array
     {
+        $id = $this->id;
+
         return [
-            //
+            "title"       => ["required", "unique:contents,title,$id"],
+            "content"     => ["required", "string"],
+            "image"       => ["sometimes", "nullable", "mimes:jpeg,png,jpg,gif,webp,svg"],
+            'status'      => ["nullable", new EnumValidation(StatusEnum::class)]
         ];
     }
 }
