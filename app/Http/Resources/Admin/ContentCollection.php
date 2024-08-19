@@ -2,8 +2,7 @@
 
 namespace App\Http\Resources\Admin;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use App\Http\Resources\BaseCollection;
 
 class ContentCollection extends BaseCollection
 {
