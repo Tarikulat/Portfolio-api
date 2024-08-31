@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ContentController;
 
 Route::get('/clear', function () {
@@ -10,7 +11,16 @@ Route::get('/clear', function () {
     return 'Success! Your are very lucky!';
 });
 
+// Auth
+Route::controller(AuthController::class)->group(function () {
+    Route::post('registration', 'registration');
+    Route::post('reset-password', 'resetPassword');
+    Route::post('login', 'login');
+});
+
 Route::middleware(['auth:sanctum'])->group(function () {
+    // Dashboard
+    // Route::get('dashboard', [DashboardController::class, 'dashboard']);
 
 
 
@@ -31,5 +41,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 
 
-
+    // Logout route
+    Route::post('change-password', [AuthController::class, 'changePassword']);
+    Route::post('logout',          [AuthController::class, 'logout']);
 });
