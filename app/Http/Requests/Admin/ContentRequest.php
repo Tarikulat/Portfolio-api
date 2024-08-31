@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Enums\StatusEnum;
+use App\Rules\EnumValidation;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ContentRequest extends FormRequest

@@ -15,7 +15,6 @@ class ContentRepository
         $paginateSize = Helper::checkPaginateSize($request);
         $searchKey    = $request->input("search_key", null);
 
-
         try {
 
             $contents = Content::with(["createdBy:id,username", "updatedBy:id,username"])
