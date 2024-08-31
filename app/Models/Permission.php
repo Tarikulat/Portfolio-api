@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Laratrust\Models\Permission as PermissionModel;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Permission extends PermissionModel
 {
